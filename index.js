@@ -2,6 +2,12 @@ $('.toggle-menu')
   .click(function () {
     $(this).toggleClass('active');
     $('#menu').toggleClass('open');
+    if($('#menu').hasClass('open')){
+      $('.bean').attr('src', '../images/close.png').addClass('close')
+    }else{
+      $('.bean').attr('src', '../images/bean.png').removeClass('close')
+    }
+    
   });
 
 //   GSAP

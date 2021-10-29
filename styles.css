@@ -4,14 +4,20 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
 
 .general{
     width: 100%;
     height: 100vh;
-    background-image: url('./images/Cover.png');
+    /* background-image: url('./images/Cover.png');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .logo{
@@ -24,14 +30,33 @@
     top:-2.5%;
 }
 
+.left-section, .right-section{
+    position: relative;
+    width: 50%;
+}
+.left-section{
+    border-right: 2.5px solid #f7c12f;
+    background-image: url('./images/cover-left.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.right-section{
+    border-left: 2.5px solid #f7c12f;
+    background-image: url('./images/cover-right.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .circleleft{
     position: absolute;
-    left:50%;
-    margin-left: -495px;
-    height:100vh;
+    right:0px;
+    bottom: 0;
+    width: 550px;
+    max-width: 100%;
 }
 
-.circleleft:hover{
+ .circleleft:hover{
     opacity: 0.8;
 }
 .circleright:hover{
@@ -40,18 +65,19 @@
 
 .circleright{
     position: absolute;
-    right:50%;
-    margin-right: -495px;
-    height:100vh;
+    left:0px;
+    bottom: 0px;
+    width: 550px;
+    max-width: 100%;
 }
 
 .discover-coffee,.discover-furniture{
     color: #fff;
     position: absolute;
-    top:60%;
     font-family: 'Lancelot';
     font-weight: 400;
     font-size: 3rem;
+    top: 50%;
 }
 .arrow-left,.arrow-right{
     width: 100px;
@@ -60,20 +86,151 @@
 }
 
 .discover-coffee{
-    left:22%;
+    right:50px;
 }
 
 .arrow-left{
-    left:25%;
+    right: 200px;
 }
 
 .discover-furniture{
-    right:25%;
+    left:50px;
 }
 
 .arrow-right{
-    right:25%;
+    left:200px;
     transform: rotate(180deg);
+} 
+
+@media screen and (min-height: 1250px) {
+    .discover-coffee,.discover-furniture{
+        top: 70%;
+    }
+    .arrow-left,.arrow-right{
+        top:80%;
+    }
+}
+
+@media screen and (max-width: 929px) {
+    body{
+        overflow-y: unset;
+    }
+    .general{
+        flex-direction: row;
+    }
+    .logo{
+        width: 200px;
+        height: 200px;
+        margin-left: -150px;
+        left: unset;
+        right: 10px;
+    }
+    .discover-coffee,.discover-furniture{
+        font-size: 2rem;
+    }
+    .discover-coffee{
+        top: 60%;
+        right: 80px;
+    }
+    .arrow-left{
+        top: 70%;
+        right: 80px;
+    }
+    .discover-furniture{
+        top: 10%;
+        left: 80px;
+    }
+    .arrow-right{
+        top: 20%;
+        left: 80px;
+    }
+    .arrow-left,.arrow-right{
+        width: 50px;
+    }
+    .left-section, .right-section{
+        width: 100%;
+    }
+    .left-section{
+        border-right: unset;
+        border-bottom: 1px solid #f7c12f;
+    }
+    .right-section{
+        background-position: 0px -350px;
+        border-left: unset;
+        border-top: 1px solid #f7c12f;
+    }
+    .circleleft{
+        display: none;
+    }
+    .circleright{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 745px) {
+    .right-section{
+        background-position: 0px -250px;
+    }
+}
+@media screen and (max-width: 641px) {
+    .right-section{
+        background-position: 0px -150px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .logo{
+        width: 150px;
+        height: 150px;
+    }
+    .right-section{
+        background-position: 0px -150px;
+    }
+    .discover-coffee{
+        top: 40%;
+        right: 80px;
+    }
+    .arrow-left{
+        top: 50%;
+        right: 80px;
+    }
+}
+@media screen and (max-width: 539px) {
+    .right-section{
+        background-position: 0px -50px;
+    }
+}
+@media screen and (max-width: 446px) {
+    .right-section{
+        background-position: 0px -0px;
+    }
+    .discover-coffee{
+        top: 40%;
+        right: 20px;
+    }
+    .arrow-left{
+        top: 50%;
+        right: 20px;
+    }
+    .discover-furniture{
+        top: 10%;
+        left: 20px;
+    }
+    .arrow-right{
+        top: 20%;
+        left: 20px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .discover-coffee,.discover-furniture{
+        font-size: 1.5rem;
+    }
+    .arrow-left{
+        width: 40px;
+    }
+    .arrow-right{
+        width: 40px;
+    }
 }
 
 
@@ -99,14 +256,42 @@
       transition: all ease-in;
       }  
   }
-  .circle-left-a:hover ~ .arrow-left {
+  .circle-left-a:hover  .arrow-left {
     -webkit-animation: arrow-jump-left 2s infinite; /* Safari 4+ */
     -moz-animation:    arrow-jump-left 2s infinite; /* Fx 5+ */
     -o-animation:      arrow-jump-left 2s infinite; /* Opera 12+ */
     animation:         arrow-jump-left 2s infinite; /* IE 10+, Fx 29+ */
   }
 
-  .circle-right-a:hover ~ .arrow-right {
+  .circle-right-a:hover  .arrow-right {
+    -webkit-animation: arrow-jump-right 2s infinite; /* Safari 4+ */
+    -moz-animation:    arrow-jump-right 2s infinite; /* Fx 5+ */
+    -o-animation:      arrow-jump-right 2s infinite; /* Opera 12+ */
+    animation:         arrow-jump-right 2s infinite; /* IE 10+, Fx 29+ */
+  }
+
+  .arrow-left:hover  {
+    -webkit-animation: arrow-jump-left 2s infinite; /* Safari 4+ */
+    -moz-animation:    arrow-jump-left 2s infinite; /* Fx 5+ */
+    -o-animation:      arrow-jump-left 2s infinite; /* Opera 12+ */
+    animation:         arrow-jump-left 2s infinite; /* IE 10+, Fx 29+ */ 
+  }
+
+  .arrow-right:hover{
+    -webkit-animation: arrow-jump-right 2s infinite; /* Safari 4+ */
+    -moz-animation:    arrow-jump-right 2s infinite; /* Fx 5+ */
+    -o-animation:      arrow-jump-right 2s infinite; /* Opera 12+ */
+    animation:         arrow-jump-right 2s infinite; /* IE 10+, Fx 29+ */
+  }
+
+  .discover-coffee:hover + .arrow-left{
+    -webkit-animation: arrow-jump-left 2s infinite; /* Safari 4+ */
+    -moz-animation:    arrow-jump-left 2s infinite; /* Fx 5+ */
+    -o-animation:      arrow-jump-left 2s infinite; /* Opera 12+ */
+    animation:         arrow-jump-left 2s infinite; /* IE 10+, Fx 29+ */ 
+  }
+
+  .discover-furniture:hover + .arrow-right{
     -webkit-animation: arrow-jump-right 2s infinite; /* Safari 4+ */
     -moz-animation:    arrow-jump-right 2s infinite; /* Fx 5+ */
     -o-animation:      arrow-jump-right 2s infinite; /* Opera 12+ */
